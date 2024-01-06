@@ -32,12 +32,12 @@ app.use("/", authRouter);
 app.use("/designer/", designerRouter);
 app.use("/work/", sampleRouter, BeforeAfter);
 
-// //static file
-// app.use(express.static(path.join(__dirname, "./client/build")));
+//static file
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
